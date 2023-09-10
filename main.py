@@ -176,8 +176,3 @@ if __name__ == "__main__":
     # eface.generateProfileTileImages()
 
     cv.waitKey(0)
-
-
-    # fishface = FisherFaces()
-    # fishface.loadData(os.listdir(SAMPLES_PATH))
-    # fishface.train()
