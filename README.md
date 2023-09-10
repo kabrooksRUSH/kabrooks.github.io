@@ -6,7 +6,7 @@ To start, we need a data set of **M x N** face images. The 'mean face' is then c
 
 ## My Results
 In my experimentation I used the Extended Yale Face Database B data set. This set of images includes 15 subjects making 11 different facial expressions. Some subjects are wearing glasses and some are not.
-![Tiled faces, subject 1](Output/tiled.subject1.pgm)
+![Tiled faces, subject 1](https://drive.google.com/uc?id=1b6zNXZ6CiFO9uE7hOxvAStnAkt3mKH6N)
 
 ## Limitations
 There are a few assumptions we have for our data that have an impact on how useful the Eigenfaces approach is in real world application. The first and most notable assumption is that all input images have the same pixel resolution and the eyes and mouths of the faces are in the same position. This limitation prevents Eigenfaces from being a solid approach to finding a face within a larger image. The second big limitation with Eigenfaces is that the lighting on the faces used in our data set has significant impact on how well face images can be reapproximated in face space. The Eigenfaces approach also has issues reapproximating faces with glasses or faces that have a different facial expressions.
