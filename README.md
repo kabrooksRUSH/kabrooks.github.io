@@ -10,12 +10,12 @@ In my experimentation I used the Extended Yale Face Database B data set. This se
 
 The images shown below are the first 3 basis vectors for our face space. The images don't have any real usefulness to human eyes but they are interesting to look at.
 | Basis Vector 1 | Basis Vector 2 | Basis Vector 3|
-| :-----------: | :-----------: | :-----------: |
+| :--------------------: | :----------------------: | :---------------------: |
 | ![basis vector 1](https://drive.google.com/uc?id=1D5Lckla1gCqDA56DRYwkzhVJiNfmTvto) | ![basis vector 2](https://drive.google.com/uc?id=1CMBOA262uQwu6eEHLCHoZSs3bNpUMbFE) | ![basis vector 3](https://drive.google.com/uc?id=1WO4QUCAl6vIiBkNtMPjnyP6BEpdFL4Pt) |
 
 Once we project an input image into our face space we can transform it back by left multiplying **alpha** by **U'**. This brings **alpha** back into our original **D** dimensional vector which we can reshape into the original image size of **M x N**. Keep in mind that when we create **alpha** we lose some information about the image so when we bring it back into our **D** dimensional space it will not be the same exact image. Below are the results of approximating the first image of subject 1.
 | Original Image |
-| :------------: |
+| :---------------------------: |
 | ![Original Image](https://drive.google.com/uc?id=1kfxD4JzNajXWcA9yGLwkPqU6myqOiNRI) |
 
 | Approximation r=5 | Approximation r=10 | Approximation r=100|
