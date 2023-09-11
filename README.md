@@ -24,6 +24,8 @@ Once we project an input image into our face space we can transform it back by l
 | :-----------: | :-----------: | :-----------: |
 | ![Approximation r=5](https://drive.google.com/uc?id=1uhWC657uiWYkOlZRIx90rIpjTmJB2eq3) | ![approximation r=10](https://drive.google.com/uc?id=1el_P8BNB536BppOXNETrYtcqkR2Q7hj8) | ![approximation r=100](https://drive.google.com/uc?id=1aFXBL8xixNPHBYy4nG5JgG-Yb-S0chNZ) |
 
+If you would like to see the code for this project [click here](https://github.com/kabrooksRUSH/kabrooks.github.io).
+
 ## Limitations
 There are a few assumptions we have for our data that have an impact on how useful the Eigenfaces approach is in real world application. The first and most notable assumption is that all input images have the same pixel resolution and the eyes and mouths of the faces are in the same position. This limitation prevents Eigenfaces from being a solid approach to finding a face within a larger image. The second big limitation with Eigenfaces is that the lighting on the faces used in our data set has significant impact on how well face images can be approximated in face space. The Eigenfaces approach also has issues approximating faces with glasses or faces that have a different facial expressions. The Fisherfaces approach to facial reconition aims to address these shortcomings.
 
