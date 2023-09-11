@@ -1,21 +1,23 @@
 # Eigenfaces
-Eigenfaces is an approach to facial recognition that aims to extract the most important features of a face image using Principal Component Analysis (PCA). The Eigenfaces approach has the ability to represent facial images more efficiently than storing a full size image. Many people consider Eigenfaces to be the first 'working' facial recognition technology.
+Eigenfaces is an approach to facial recognition that aims to extract the most important features of a face image using Principal Component Analysis (PCA). The Eigenfaces approach has the ability to represent facial images more efficiently than storing a full size image. This becomes very important in the case where you want to feed thousands and thousands of images into a classification algorithm. Eigenfaces reduces dimensinality of a face image. Instead of feeding inputs of tens of thousands of dimensions into your classification algorithm, you can feed data with much lower dimensionality subsequently lowering training time. Many people consider Eigenfaces to be the first 'working' facial recognition technology.
 
 ## Approach
-To start, we need a data set of **M x N** face images. The 'mean face' is then computed by taking the average of each pixel across the dataset. We then subtract the 'mean face' from all the images in our dataset. All the images are then rasterized into  **D** dimensional vectors where **D = M * N**. With all of our rasterized images, we form a new **D x L** matrix **A** where L is the number of images in our data set. We then perform PCA on the matrix **A** to get the matricies **U**, **S**, and **V** (Click here for more information on PCA). We then make a **D x r** matrix **U'** where **U'** is the concatenation of the first **r** column vectors of **U** that correspond with the largest eigenvalues. The column vectors of **U'** span our 'face space' and are called 'eigenfaces'. We can then project a rasterized input image **x** into our face space by doing matrix multiplication **U'^T * x**. The result of this matrix multiplication is often called **alpha**.
+To start, we need a data set of **M x N** face images. The 'mean face' is then computed by taking the average of each pixel across the dataset. We then subtract the 'mean face' from all the images in our dataset. All the images are then rasterized into  **D** dimensional vectors where **D = M * N**. With all of our rasterized images, we form a new **D x L** matrix **A** where L is the number of images in our data set. We then perform PCA on the matrix **A** to get the matricies **U**, **S**, and **V** ([Click here for more information on PCA](https://builtin.com/data-science/step-step-explanation-principal-component-analysis)). We then make a **D x r** matrix **U'** where **U'** is the concatenation of the first **r** column vectors of **U** that correspond with the largest eigenvalues. The column vectors of **U'** span our 'face space' and are called 'eigenfaces'. We can then project a rasterized input image **x** into our face space by doing matrix multiplication **U'^T * x**. The result of this matrix multiplication is often called **alpha**.
 
 ## My Results
 In my experimentation I used the Extended Yale Face Database B data set. This set of images includes 15 subjects making 11 different facial expressions. Some subjects are wearing glasses and some are not.
 ![Tiled faces, subject 1](https://drive.google.com/uc?id=1b6zNXZ6CiFO9uE7hOxvAStnAkt3mKH6N)
 
 The images shown below are the first 3 basis vectors for our face space. The images don't have any real usefulness to human eyes but they are interesting to look at.
+
 | Basis Vector 1 | Basis Vector 2 | Basis Vector 3|
-| :-----------: | :-----------: | :-----------: |
+| :--------------------: | :----------------------: | :---------------------: |
 | ![basis vector 1](https://drive.google.com/uc?id=1D5Lckla1gCqDA56DRYwkzhVJiNfmTvto) | ![basis vector 2](https://drive.google.com/uc?id=1CMBOA262uQwu6eEHLCHoZSs3bNpUMbFE) | ![basis vector 3](https://drive.google.com/uc?id=1WO4QUCAl6vIiBkNtMPjnyP6BEpdFL4Pt) |
 
 Once we project an input image into our face space we can transform it back by left multiplying **alpha** by **U'**. This brings **alpha** back into our original **D** dimensional vector which we can reshape into the original image size of **M x N**. Keep in mind that when we create **alpha** we lose some information about the image so when we bring it back into our **D** dimensional space it will not be the same exact image. Below are the results of approximating the first image of subject 1.
+
 | Original Image |
-| :------------: |
+| :---------------------------: |
 | ![Original Image](https://drive.google.com/uc?id=1kfxD4JzNajXWcA9yGLwkPqU6myqOiNRI) |
 
 | Approximation r=5 | Approximation r=10 | Approximation r=100|
